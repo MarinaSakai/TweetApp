@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*投稿削除確認*/
+ span#delete_button{font-size:0.9em; color:#939c9f; text-decoration: underline; cursor: pointer;}
+ .post-delete-check{
+   display:none;
+   width:400px; height:180px;
+   background-color:white;
+   position:absolute;
+   top: 30%; left: 50%;
+   -webkit-transform: translateY(-50%) translateX(-50%);
+   transform: translateY(-50%) translateX(-50%);
+   text-align:center;
+   border-radius:5px;
+   box-shadow: 0 0 8px gray;
+   padding:5px;
+ }
+ .post-delete-check p{font-size:1em;}
+ .post-delete-check a{padding:10px; margin:0 5px; border-radius:5px; cursor:pointer;}
+ .post-delete-check .cancel_btn{border:1px solid rgb(215, 215, 215);}
+ .post-delete-check .ok_btn{background-color:rgb(83, 157, 255); color:white;}
+
+/*新規登録確認*/
+ span#user_reg_button{
+   display: block;
+   text-decoration:none;
+   width: 160px;
+   padding: 0.8em;
+   text-align: center;
+   color: #FFF;
+   border-radius: 4px;
+   background: #41D8C9;
+   overflow: hidden;
+   cursor: pointer;
+   float:right;
+ }
+ .user-reg-check{
+   display:none;
+   width:400px; height:160px;
+   background-color:white;
+   position:absolute;
+   top: 30%; left: 50%;
+   -webkit-transform: translateY(-50%) translateX(-50%);
+   transform: translateY(-50%) translateX(-50%);
+   text-align:center;
+   border-radius:5px;
+   box-shadow: 0 0 8px gray;
+   padding:5px;
+ }
+ .user-reg-check p{font-size:1em; padding:20px 0;}
+ .user-reg-check a{padding:10px; margin:0 5px; border-radius:5px; cursor:pointer;}
+ .user-reg-check input{padding:10px; position:relative; top:-12px; left:-60px; border-radius:5px; cursor:pointer;}
+ .user-reg-check .cancel_btn{border:1px solid rgb(215, 215, 215);}
+ .user-reg-check .ok_btn{background-color:rgb(83, 157, 255); color:white;}
+
+/*ログアウト確認*/
+ span#logout_button{font-size:1em; color:white; cursor: pointer;}
+ .logout-check{
+   display:none;
+   width:300px; height:140px;
+   background-color:white;
+   position:absolute;
+   top: 30%; left: 50%;
+   -webkit-transform: translateY(-50%) translateX(-50%);
+   transform: translateY(-50%) translateX(-50%);
+   text-align:center;
+   border-radius:5px;
+   box-shadow: 0 0 8px gray;
+   padding:5px;
+   z-index:100;
+ }
+ .logout-check p{font-size:1em; padding:20px 0;}
+ .logout-check a{padding:10px; margin:0 5px; border-radius:5px; cursor:pointer;}
+ .logout-check .cancel_btn{border:1px solid rgb(215, 215, 215);}
+ .logout-check .ok_btn{background-color:#41D8C9; color:white;}
+
+ /*ユーザー編集確認*/
+ span#user_save_button{
+   display: block;
+   text-decoration:none;
+   width: 160px;
+   padding: 0.8em;
+   text-align: center;
+   color: #FFF;
+   border-radius: 4px;
+   background: #41D8C9;
+   overflow: hidden;
+   cursor: pointer;
+   float:right;
+ }
+ .user-save-check{
+   display:none;
+   width:400px; height:160px;
+   background-color:white;
+   position:absolute;
+   top: 30%; left: 50%;
+   -webkit-transform: translateY(-50%) translateX(-50%);
+   transform: translateY(-50%) translateX(-50%);
+   text-align:center;
+   border-radius:5px;
+   box-shadow: 0 0 8px gray;
+   padding:5px;
+   z-index:100;
+ }
+ .user-save-check p{font-size:1em; padding:20px 0;}
+ .user-save-check a{padding:10px; margin:0 5px; border-radius:5px; cursor:pointer;}
+ .user-save-check input{padding:10px; position:relative; top:-12px; left:-60px; border-radius:5px; cursor:pointer;}
+ .user-save-check .cancel_btn{border:1px solid rgb(215, 215, 215);}
+ .user-save-check .ok_btn{background-color:rgb(83, 157, 255); color:white;}

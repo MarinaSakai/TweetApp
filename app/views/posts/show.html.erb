@@ -1,0 +1,47 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}"%>" class="user-img">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+      <p>
+        <%= @post.content %>
+      </p>
+      <div class="post-time">
+        <%= @post.created_at %>
+      </div>
+
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn-unlike"></span>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn"></span>
+        <% end %>
+      <% end %>
+
+      <%= @likes_count %>
+
+      <% if @post.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+          <span id="delete_button">削除</span>
+          <%= audio_tag "/audios/1.mp3", :autoplay => false, :id =>"se_warning" %>
+        </div>
+
+
+        <div class="post-delete-check">
+          <p>
+            <img src="/warning.png">
+            本当に削除しますか？削除すると元のデータは復元できません
+          </p>
+          <a class="cancel_btn">キャンセル</a>
+          <%= link_to("OK", "/posts/#{@post.id}/destroy", {method: "post", class:"ok_btn", data: {"turbolinks" => false}}) %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

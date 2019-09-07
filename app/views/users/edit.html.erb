@@ -1,0 +1,35 @@
+<div class="main users-edit">
+  <div class="container">
+    <div class="form-heading">ユーザー情報の編集</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% @user.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+            <%= audio_tag "/audios/2.mp3", :autoplay => false, :id =>"se_error" %>
+          </div>
+        <% end %>
+        <%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+          <p>ユーザー名</p>
+          <input name="name" value="<%= @user.name %>">
+          <input name="image" type="file">
+          <p>メールアドレス</p>
+          <input name="email" value="<%= @user.email %>">
+          <div class="save">
+            <span id="user_save_button">保存</span>
+            <%= audio_tag "/audios/10.mp3", :autoplay => false, :id =>"se_confirm" %>
+          </div>
+
+          <div class="user-save-check">
+            <p>
+              <img src="/question.png">
+              ユーザー情報をアップデートしますか？
+            </p>
+            <a class="cancel_btn">キャンセル</a>
+            <%= submit_tag("OK", :class => "ok_btn", data: {"turbolinks" => false}) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

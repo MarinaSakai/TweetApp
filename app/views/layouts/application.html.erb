@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SNSRubyonrails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- font Awesomeの読み込み -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+         <%= link_to("TweetApp", "/posts/index") %>
+        <% else %>
+         <%= link_to("TweetApp", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("投稿一覧", "/posts/index", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("新規投稿", "/posts/new", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("ユーザー一覧", "/users/index", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <div class="logout">
+              <span id="logout_button">ログアウト</span>
+              <%= audio_tag "/audios/10.mp3", :autoplay => false, :id =>"se_confirm" %>
+            </div>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to("TweetAppとは", "/about", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("新規登録", "/signup", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login", data: {"turbolinks" => false}) %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+
+    <div class="logout-check">
+      <p>
+        <img src="/question.png">
+        ログアウトしますか？
+      </p>
+      <a class="cancel_btn">キャンセル</a>
+      <%= link_to("OK", "/logout", {method: "post", class:"ok_btn", data: {"turbolinks" => false}}) %>
+    </div>
+
+    <% if flash.now[:error] %>
+      <div class="flash-error">
+        <%= flash.now[:error] %>
+	      <%= audio_tag "/audios/2.mp3", :autoplay => false, :id =>"se_error" %>
+      </div>
+    <% end %>
+    <%= yield %>
+
+    <% if flash[:notice] %>
+      <div class="flash-notice">
+        <%= flash[:notice] %>
+	      <%= audio_tag "/audios/16.mp3", :autoplay => false, :id =>"se_notice" %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
